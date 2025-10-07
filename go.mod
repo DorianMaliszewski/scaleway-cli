@@ -2,6 +2,8 @@ module github.com/scaleway/scaleway-cli/v2
 
 go 1.24.6
 
+replace github.com/scaleway/scaleway-sdk-go => ../scaleway-sdk-go
+
 require (
 	github.com/aws/aws-sdk-go-v2 v1.39.2
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.88.3
