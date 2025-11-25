@@ -51,7 +51,7 @@ func imagesMarshalerFunc(i any, _ *human.MarshalOpt) (string, error) {
 	images := i.([]*imageListItem)
 	humanImages := []*humanImage(nil)
 	for _, image := range images {
-		// For each image we want to display a list of volume size sepatated with `,`
+		// For each image we want to display a list of volume size separated with `,`
 		// e.g: 10 GB, 20 GB
 		volumes := []scw.Size{
 			image.RootVolume.Size,
@@ -185,10 +185,15 @@ func imageListBuilder(c *core.Command) *core.Command {
 		// Get images
 		args := argsI.(*customListImageRequest)
 
-		req := &instance.ListImagesRequest{}
-		req.Organization = args.OrganizationID
-		req.Project = args.ProjectID
-		req.Public = scw.BoolPtr(false)
+		req := &instance.ListImagesRequest{
+			Organization: args.OrganizationID,
+			Name:         args.Name,
+			Public:       scw.BoolPtr(false),
+			Arch:         args.Arch,
+			Project:      args.ProjectID,
+			Tags:         args.Tags,
+		}
+
 		client := core.ExtractClient(ctx)
 		api := instance.NewAPI(client)
 		blockAPI := block.NewAPI(client)

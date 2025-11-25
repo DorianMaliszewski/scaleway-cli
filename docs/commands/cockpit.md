@@ -20,13 +20,11 @@ This API allows you to manage your Scaleway Cockpit, for storing and visualizing
   - [Get your Cockpit's Grafana](#get-your-cockpit's-grafana)
   - [Synchronize Grafana data sources](#synchronize-grafana-data-sources)
 - [Grafana user management commands](#grafana-user-management-commands)
-  - [Create a Grafana user](#create-a-grafana-user)
-  - [Delete a Grafana user](#delete-a-grafana-user)
-  - [List Grafana users](#list-grafana-users)
-  - [Reset a Grafana user password](#reset-a-grafana-user-password)
+  - [(Deprecated) EOL 2026-01-20](#(deprecated)-eol-2026-01-20)
+  - [(Deprecated) EOL 2026-01-20](#(deprecated)-eol-2026-01-20)
+  - [(Deprecated) EOL 2026-01-20](#(deprecated)-eol-2026-01-20)
+  - [(Deprecated) EOL 2026-01-20](#(deprecated)-eol-2026-01-20)
 - [Managed alerts management commands](#managed-alerts-management-commands)
-  - [Disable managed alerts](#disable-managed-alerts)
-  - [Enable managed alerts](#enable-managed-alerts)
 - [Pricing plans management commands](#pricing-plans-management-commands)
   - [Get current plan](#get-current-plan)
   - [List plan types](#list-plan-types)
@@ -344,8 +342,9 @@ scw cockpit grafana sync-data-sources [arg=value ...]
 Grafana user management commands.
 
 
-### Create a Grafana user
+### (Deprecated) EOL 2026-01-20
 
+Create a Grafana user
 Create a Grafana user to connect to your Cockpit's Grafana. Upon creation, your user password displays only once, so make sure that you save it.
 Each Grafana user is associated with a role: viewer or editor. A viewer can only view dashboards, whereas an editor can create and edit dashboards. Note that the `admin` username is not available for creation.
 
@@ -366,8 +365,9 @@ scw cockpit grafana-user create [arg=value ...]
 
 
 
-### Delete a Grafana user
+### (Deprecated) EOL 2026-01-20
 
+Delete a Grafana user
 Delete a Grafana user from your Cockpit's Grafana, specified by the ID of the Project the Cockpit belongs to, and the ID of the Grafana user.
 
 **Usage:**
@@ -386,8 +386,9 @@ scw cockpit grafana-user delete [arg=value ...]
 
 
 
-### List Grafana users
+### (Deprecated) EOL 2026-01-20
 
+List Grafana users
 List all Grafana users created in your Cockpit's Grafana. By default, the Grafana users returned in the list are ordered in ascending order.
 
 **Usage:**
@@ -406,8 +407,9 @@ scw cockpit grafana-user list [arg=value ...]
 
 
 
-### Reset a Grafana user password
+### (Deprecated) EOL 2026-01-20
 
+Reset a Grafana user password
 Reset the password of a Grafana user, specified by the ID of the Project the Cockpit belongs to, and the ID of the Grafana user.
 A new password regenerates and only displays once. Make sure that you save it.
 
@@ -431,44 +433,13 @@ scw cockpit grafana-user reset-password [arg=value ...]
 
 Managed alerts management commands.
 
-
-### Disable managed alerts
-
-Disable the sending of managed alerts for the specified Project.
+Managed alerts management commands.
 
 **Usage:**
 
 ```
-scw cockpit managed-alerts disable [arg=value ...]
+scw cockpit managed-alerts
 ```
-
-
-**Args:**
-
-| Name |   | Description |
-|------|---|-------------|
-| project-id |  | Project ID to use. If none is passed the default project ID will be used |
-| region | Default: `fr-par`<br />One of: `fr-par`, `nl-ams`, `pl-waw` | Region to target. If none is passed will use default region from the config |
-
-
-
-### Enable managed alerts
-
-Enable the sending of managed alerts for the specified Project. Managed alerts are predefined alerts that apply to Scaleway recources integrated with Cockpit by default.
-
-**Usage:**
-
-```
-scw cockpit managed-alerts enable [arg=value ...]
-```
-
-
-**Args:**
-
-| Name |   | Description |
-|------|---|-------------|
-| project-id |  | Project ID to use. If none is passed the default project ID will be used |
-| region | Default: `fr-par`<br />One of: `fr-par`, `nl-ams`, `pl-waw` | Region to target. If none is passed will use default region from the config |
 
 
 
@@ -480,7 +451,7 @@ Pricing plans management commands.
 ### Get current plan
 
 Retrieve a pricing plan for the given Project, specified by the ID of the Project.
-Deprecated: retention is now managed at the data source level.
+Deprecated due to retention now being managed at the data source level.
 
 **Usage:**
 
@@ -500,7 +471,7 @@ scw cockpit plan get [arg=value ...]
 ### List plan types
 
 Retrieve a list of available pricing plan types.
-Deprecated: retention is now managed at the data source level.
+Deprecated due to retention now being managed at the data source level.
 
 **Usage:**
 
@@ -520,7 +491,7 @@ scw cockpit plan list [arg=value ...]
 ### Apply a pricing plan
 
 Apply a pricing plan on a given Project. You must specify the ID of the pricing plan type. Note that you will be billed for the plan you apply.
-Deprecated: retention is now managed at the data source level.
+Deprecated due to retention now being managed at the data source level.
 
 **Usage:**
 

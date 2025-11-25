@@ -201,6 +201,7 @@ scw apple-silicon server create [arg=value ...]
 | runner-configuration.url |  |  |
 | runner-configuration.token |  |  |
 | runner-configuration.provider | One of: `unknown_provider`, `github`, `gitlab` |  |
+| applied-runner-configurations.runner-configuration-ids.{index} |  |  |
 | zone | Default: `fr-par-1`<br />One of: `fr-par-3` | Zone to target. If none is passed will use default zone from the config |
 
 
@@ -289,7 +290,7 @@ scw apple-silicon server reboot <server-id ...> [arg=value ...]
 
 ### Reinstall a server
 
-Reinstall an existing Apple silicon server (specified by its server ID) from a new image (OS). All the data on the disk is deleted and all configuration is reset to the defailt configuration values of the image (OS).
+Reinstall an existing Apple silicon server (specified by its server ID) from a new image (OS). All the data on the disk is deleted and all configuration is reset to the default configuration values of the image (OS).
 
 **Usage:**
 
@@ -304,10 +305,6 @@ scw apple-silicon server reinstall <server-id ...> [arg=value ...]
 |------|---|-------------|
 | server-id | Required | UUID of the server you want to reinstall |
 | os-id |  | Reinstall the server with the OS corresponding to the os_id |
-| runner-configuration.name |  |  |
-| runner-configuration.url |  |  |
-| runner-configuration.token |  |  |
-| runner-configuration.provider | One of: `unknown_provider`, `github`, `gitlab` |  |
 | zone | Default: `fr-par-1`<br />One of: `fr-par-3` | Zone to target. If none is passed will use default zone from the config |
 
 
@@ -356,6 +353,7 @@ scw apple-silicon server update <server-id ...> [arg=value ...]
 | enable-vpc |  | Activate or deactivate Private Network support for this server |
 | commitment-type.commitment-type | One of: `duration_24h`, `renewed_monthly`, `none` |  |
 | public-bandwidth-bps |  | Public bandwidth configured for this server |
+| applied-runner-configurations.runner-configuration-ids.{index} |  |  |
 | zone | Default: `fr-par-1`<br />One of: `fr-par-3` | Zone to target. If none is passed will use default zone from the config |
 
 

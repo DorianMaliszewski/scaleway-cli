@@ -169,6 +169,10 @@ func (node *AutoCompleteNode) GetChildMatch(name string) (*AutoCompleteNode, boo
 	return nil, false
 }
 
+func (node *AutoCompleteNode) DebugString() string {
+	return node.Name
+}
+
 func (node *AutoCompleteNode) addFlags(flags []FlagSpec) {
 	for i := range flags {
 		flag := &flags[i]
@@ -463,7 +467,7 @@ func isFlag(wordToComplete string) bool {
 }
 
 // hasPrefix will look if the word to complete prefixes the given key.
-// It also handle complexe key schema such as slices and maps. E.g.:
+// It also handles complex key schema such as slices and maps. E.g.:
 // `security-gr` prefixes `security-group-id`
 // `image-ids.0` prefixes `image-ids.{index}`
 // `volumes.0.s` prefixes `volumes.{index}.size`

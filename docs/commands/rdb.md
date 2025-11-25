@@ -39,7 +39,7 @@ This API allows you to manage your Managed Databases for PostgreSQL and MySQL.
   - [Delete a Database Instance](#delete-a-database-instance)
   - [Get a Database Instance](#get-a-database-instance)
   - [Get the TLS certificate of a Database Instance](#get-the-tls-certificate-of-a-database-instance)
-  - [Get Database Instance metrics](#get-database-instance-metrics)
+  - [[deprecated] Get Database Instance metrics](#[deprecated]-get-database-instance-metrics)
   - [List Database Instances](#list-database-instances)
   - [Renew the TLS certificate of a Database Instance](#renew-the-tls-certificate-of-a-database-instance)
   - [Restart Database Instance](#restart-database-instance)
@@ -103,9 +103,10 @@ scw rdb acl add <acl-rule-ips ...> [arg=value ...]
 
 | Name |   | Description |
 |------|---|-------------|
-| acl-rule-ips | Required | IP addresses defined in the ACL rules of the Database Instance |
+| acl-rule-ips |  | IP addresses defined in the ACL rules of the Database Instance |
 | instance-id | Required | ID of the Database Instance |
-| description |  | Description of the ACL rule. Indexes are not yet supported so the description will be applied to all the rules of the command. |
+| description |  | Description of the ACL rule. If multiple IPs are provided, this description will be applied to all rules unless specific descriptions are provided. |
+| descriptions |  | Descriptions of the ACL rules |
 | region | Default: `fr-par` | Region to target. If none is passed will use default region from the config |
 
 
@@ -125,7 +126,7 @@ scw rdb acl delete <acl-rule-ips ...> [arg=value ...]
 
 | Name |   | Description |
 |------|---|-------------|
-| acl-rule-ips | Required | IP addresses defined in the ACL rules of the Database Instance |
+| acl-rule-ips |  | IP addresses defined in the ACL rules of the Database Instance |
 | instance-id | Required | ID of the Database Instance |
 | region | Default: `fr-par` | Region to target. If none is passed will use default region from the config |
 
@@ -834,9 +835,9 @@ scw rdb instance get-certificate <instance-id ...> [arg=value ...]
 
 
 
-### Get Database Instance metrics
+### [deprecated] Get Database Instance metrics
 
-Retrieve the time series metrics of a given Database Instance. You can define the period from which to retrieve metrics by specifying the `start_date` and `end_date`.
+Retrieve the time series metrics of a given Database Instance. You can define the period from which to retrieve metrics by specifying the `start_date` and `end_date`. This method is deprecated and will be removed in a future version.
 
 **Usage:**
 

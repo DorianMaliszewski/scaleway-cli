@@ -232,6 +232,12 @@ func appleSiliconServerCreate() *core.Command {
 					"gitlab",
 				},
 			},
+			{
+				Name:       "applied-runner-configurations.runner-configuration-ids.{index}",
+				Required:   false,
+				Deprecated: false,
+				Positional: false,
+			},
 			core.ZoneArgSpec(scw.ZoneFrPar3),
 		},
 		Run: func(ctx context.Context, args any) (i any, e error) {
@@ -470,6 +476,12 @@ func appleSiliconServerUpdate() *core.Command {
 				Deprecated: false,
 				Positional: false,
 			},
+			{
+				Name:       "applied-runner-configurations.runner-configuration-ids.{index}",
+				Required:   false,
+				Deprecated: false,
+				Positional: false,
+			},
 			core.ZoneArgSpec(scw.ZoneFrPar3),
 		},
 		Run: func(ctx context.Context, args any) (i any, e error) {
@@ -553,7 +565,7 @@ func appleSiliconServerReboot() *core.Command {
 func appleSiliconServerReinstall() *core.Command {
 	return &core.Command{
 		Short:     `Reinstall a server`,
-		Long:      `Reinstall an existing Apple silicon server (specified by its server ID) from a new image (OS). All the data on the disk is deleted and all configuration is reset to the defailt configuration values of the image (OS).`,
+		Long:      `Reinstall an existing Apple silicon server (specified by its server ID) from a new image (OS). All the data on the disk is deleted and all configuration is reset to the default configuration values of the image (OS).`,
 		Namespace: "apple-silicon",
 		Resource:  "server",
 		Verb:      "reinstall",
@@ -573,35 +585,6 @@ func appleSiliconServerReinstall() *core.Command {
 				Required:   false,
 				Deprecated: false,
 				Positional: false,
-			},
-			{
-				Name:       "runner-configuration.name",
-				Required:   false,
-				Deprecated: false,
-				Positional: false,
-			},
-			{
-				Name:       "runner-configuration.url",
-				Required:   false,
-				Deprecated: false,
-				Positional: false,
-			},
-			{
-				Name:       "runner-configuration.token",
-				Required:   false,
-				Deprecated: false,
-				Positional: false,
-			},
-			{
-				Name:       "runner-configuration.provider",
-				Required:   false,
-				Deprecated: false,
-				Positional: false,
-				EnumValues: []string{
-					"unknown_provider",
-					"github",
-					"gitlab",
-				},
 			},
 			core.ZoneArgSpec(scw.ZoneFrPar3),
 		},
