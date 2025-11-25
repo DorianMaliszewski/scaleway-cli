@@ -2,7 +2,7 @@ module github.com/scaleway/scaleway-cli/v2
 
 go 1.25.0
 
-replace github.com/scaleway/scaleway-sdk-go => github.com/DorianMaliszewski/scaleway-sdk-go v0.0.1
+replace github.com/scaleway/scaleway-sdk-go => ../scaleway-sdk-go
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.40.0
